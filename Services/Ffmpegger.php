@@ -40,17 +40,20 @@ class Ffmpegger
         $info = pathinfo($path);
         $absolutePath = realpath($this->baseFolder . '/' . $path);
 
+
+        $absoluteInfo = pathinfo($absolutePath);
+
         //path
         $framePath = $info['dirname'] . '/' . $info['filename'] . '.jpg';
         $video = $this->ffmpeg->open($absolutePath);
 
         //extracting at given second or randomly
         $duration = $this->ffmpeg->getFFProbe()->format($absolutePath)->get('duration');
-        $at = is_null($second) ?: rand(0, $duration);
+        $at = is_null($second) ? rand(0, $duration) : $second;
 
         $frame = $video->frame(TimeCode::fromSeconds($at));
 
-        return $frame->save(realpath($this->baseFolder . '/' . $framePath)) ? $framePath : null;
+        return $frame->save($absoluteInfo['dirname'] . '/' . $absoluteInfo['filename'] . '.jpg') ? $framePath : null;
     }
 
 
