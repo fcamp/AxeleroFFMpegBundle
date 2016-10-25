@@ -1,0 +1,19 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="axelero_ffmpeg.class">Axelero\FfmpegBundle\Services\Ffmpegger</parameter>
+    </parameters>
+
+    <services>
+        <service id="axelero_ffmpeg.driver" class="FFMpeg\FFMpeg" public="false">
+            <factory class="FFMpeg\FFMpeg" method="create"/>
+        </service>
+
+        <service id="axelero_ffmpeg.facade" class="%axelero_ffmpeg.class%">
+            <argument type="service" id="axelero_ffmpeg.driver"/>
+            <argument>%axelero_ffmpeg.folder%</argument>
+        </service>
+    </services>
+</container>

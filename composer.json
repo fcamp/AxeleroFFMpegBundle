@@ -1,0 +1,19 @@
+{
+    "name": "axelero/ffmpeg-bundle",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Francesco Campana",
+            "email": "francesco.campana.76@gmail.com"
+        }
+    ],
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "^0.6.1"
+    },  
+    "license": "mit",
+    "autoload": {
+        "psr-4": { "Axelero\\FfmpegBundle\\": "" 
+            
+        }
+    }
+}
