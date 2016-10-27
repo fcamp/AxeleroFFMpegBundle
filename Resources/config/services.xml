@@ -8,6 +8,10 @@
 
     <services>
         <service id="axelero_ffmpeg.driver" class="FFMpeg\FFMpeg" public="false">
+            <argument type="collection">
+                <argument key="ffmpeg.binaries">%axelero_ffmpeg.ffmpeg_binary%</argument>
+                <argument key="ffprobe.binaries">%axelero_ffmpeg.ffprobe_binary%</argument>
+            </argument>
             <factory class="FFMpeg\FFMpeg" method="create"/>
         </service>
 

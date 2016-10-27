@@ -25,6 +25,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('folder')
                     ->isRequired()
             ->end()
+                ->scalarNode('ffmpeg_binary')
+                    ->isRequired()
+            ->end()
+                ->scalarNode('ffprobe_binary')
+                    ->isRequired()
+            ->end()
         ;
 
         // Here you should define the parameters that are allowed to
