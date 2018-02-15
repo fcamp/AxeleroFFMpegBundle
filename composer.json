@@ -10,7 +10,7 @@
     "require": {
         "php-ffmpeg/php-ffmpeg": "^0.6.1"
     },  
-    "license": "mit",
+    "license": "MIT",
     "autoload": {
         "psr-4": { "Axelero\\FfmpegBundle\\": "" 
             
